@@ -1,11 +1,10 @@
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
-import org.jspecify.annotations.NonNull;
 
 public class CustomPlugin implements Plugin<Project> {
 
     @Override
-    public void apply(@NonNull final Project project) {
+    public void apply(final Project project) {
         project.getTasks().register("generateBuildTimestamp", GenerateBuildTimestampTask.class, task -> {
             task.setGroup("customTasks");
             task.setDescription("Generate a timestamp file in the build directory");
