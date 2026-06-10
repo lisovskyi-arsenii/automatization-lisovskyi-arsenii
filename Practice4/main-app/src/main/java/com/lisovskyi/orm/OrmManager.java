@@ -7,12 +7,15 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class OrmManager {
     private final DataSource dataSource;
     private final Map<Class<?>, Object> repositoryRegistry = new HashMap<>();
+    private final Map<Class<?>, Object> validatorRegistry = new ConcurrentHashMap<>();
 
     public OrmManager(final DataSource dataSource) {
         this.dataSource = dataSource;
@@ -56,21 +59,24 @@ public class OrmManager {
     }
 
     private void runGeneratedValidator(final Object entity, final Class<?> entityClass) {
-        String pkg = entityClass.getPackageName();
-        String basePkg = pkg.substring(0, pkg.lastIndexOf("."));
-        String validatorClassName = basePkg + ".validator." + entityClass.getSimpleName() + "Validator";
-
         try {
-            Class<?> validatorClass = Class.forName(validatorClassName);
+            Object validatorInstance = validatorRegistry.computeIfAbsent(entityClass, clazz -> {
+                try {
+                    String pkg = entityClass.getPackageName();
+                    String basePkg = pkg.substring(0, pkg.lastIndexOf("."));
+                    String validatorClassName = basePkg + ".validator." + entityClass.getSimpleName() + "Validator";
 
-            for (Method method : validatorClass.getDeclaredMethods()) {
+                    return Class.forName(validatorClassName).getDeclaredConstructor().newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException("Failed to instantiate validator for " + clazz.getName(), e);
+                }
+            });
+
+            for (Method method : validatorInstance.getClass().getDeclaredMethods()) {
                 if (method.isAnnotationPresent(RuntimeValidate.class)) {
-                    Object validatorInstance = validatorClass.getDeclaredConstructor().newInstance();
                     method.invoke(validatorInstance, entity);
                 }
             }
-        } catch (ClassNotFoundException ignored) {
-
         } catch (Exception e) {
             Throwable cause = e.getCause() != null ? e.getCause() : e;
             throw new OrmException("Validation error: " + cause.getMessage(), cause);
@@ -80,7 +86,7 @@ public class OrmManager {
     public void scanPackage(final String basePackage) {
         try {
             String pathToBasePackage = basePackage.replace(".", "/");
-            var resource = Thread.currentThread().getContextClassLoader().getResource(pathToBasePackage);
+            URL resource = Thread.currentThread().getContextClassLoader().getResource(pathToBasePackage);
             if (resource == null) return;
 
             File directory = new File(resource.getFile());
