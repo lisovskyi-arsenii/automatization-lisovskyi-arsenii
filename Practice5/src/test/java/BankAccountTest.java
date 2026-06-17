@@ -2,7 +2,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.platform.commons.annotation.Testable;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -12,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
-@Testable
 class BankAccountTest {
     public static final String CORE_TESTS_NAME = "core";
     public static final String PARAMETERIZED_TESTS_NAME = "parameterized";
