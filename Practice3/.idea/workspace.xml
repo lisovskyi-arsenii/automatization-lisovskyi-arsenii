@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5760616f-976b-4d10-8df8-eced2eed2679" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice1/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice1/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice1/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice2/plugin-module/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice2/test-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/src/main/java/plugin/exception/SourceScanningException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/plugin-mo/main/java/plugin/exception/SourceScanningException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/src/main/java/plugin/mojo/CodeAnalyzeMojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/plugin-mo/main/java/plugin/mojo/CodeAnalyzeMojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/src/main/java/plugin/mojo/FileMergeMojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/plugin-mo/main/java/plugin/mojo/FileMergeMojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice2/src/main/java/plugin/util/SourceScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice2/plugin-mo/main/java/plugin/util/SourceScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice6/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice6/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice6/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice6/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice6/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,6 +356,7 @@
       <workItem from="1780399436758" duration="6695000" />
       <workItem from="1781085904590" duration="284000" />
       <workItem from="1781593222008" duration="10000" />
+      <workItem from="1781697161458" duration="601000" />
     </task>
     <servers />
   </component>

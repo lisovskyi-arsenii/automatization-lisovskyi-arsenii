@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.projectlombok:lombok:1.18.42")
+    implementation("org.projectlombok:lombok:1.18.46")
     testImplementation(kotlin("test"))
 }
 
@@ -38,13 +38,14 @@ tasks.register<Zip>("packHomeworkIntoZip") {
     archiveFileName.set("Practice3_LisovskyiArsenii.zip")
     destinationDirectory.set(layout.buildDirectory.dir("homework"))
 
-    from(layout.projectDirectory)
-
-    exclude(
-        "build/**",
-        ".gradle/**",
-        ".idea/**",
-        "buildSrc/build/**",
-        ".git/**"
-    )
+    from(layout.projectDirectory) {
+        exclude(
+            "build/**",
+            ".gradle/**",
+            ".idea/**",
+            "buildSrc/build/**",
+            "buildSrc/.gradle/**",
+            ".git/**"
+        )
+    }
 }
